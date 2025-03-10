@@ -17,4 +17,4 @@ Simple gameplay:
 - Defeat bosses
 - Go to next level
 
-[Documentation](https://morilhat-paul.github.io/RType-private/)
+[Documentation] (https://github.com/malo-coet/R-Type/blob/main/doc/EPITECH%20Lyon..pdf)
