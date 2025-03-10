@@ -1,0 +1,18 @@
+{
+  "name": "r-type",
+  "version-string": "0.0.1",
+  "license": "MIT",
+  "dependencies": [
+    "catch2",
+    "enet",
+    "nlohmann-json",
+    "sdl2",
+    "sdl2-image",
+    {
+      "name": "sdl2-mixer",
+      "features": ["mpg123"]
+    },
+    "sdl2-net",
+    "sdl2-ttf"
+  ]
+}

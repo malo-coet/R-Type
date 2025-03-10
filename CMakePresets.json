@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "configurePresets": [
+      {
+        "name": "config-base",
+        "hidden": true,
+        "displayName": "Base configuration",
+        "description": "Base build using Unix Makefiles generator",
+        "generator": "Unix Makefiles",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "toolchainFile": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      },
+      {
+        "name": "debug",
+        "displayName": "Config Debug",
+        "description": "Sets debug build type and cortex arch",
+        "inherits": "config-base",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_C_COMPILER": "/usr/bin/gcc",
+            "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+        }
+      },
+      {
+        "name": "release",
+        "displayName": "Config Release",
+        "description": "Sets release build type",
+        "inherits": "debug",
+        "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Release"
+        }
+      },
+      {
+        "name": "doc",
+        "displayName": "Config Documentation",
+        "description": "Sets release build type and build the documentation",
+        "inherits": "release",
+        "cacheVariables": {
+            "BUILD_DOC": "ON"
+        }
+      },
+      {
+        "name": "test",
+        "displayName": "Config Tests",
+        "description": "Sets debug build type and build the tests",
+        "inherits": "debug",
+        "cacheVariables": {
+            "BUILD_TESTS": "ON"
+        }
+      },
+      {
+        "name": "config-base-windows",
+        "hidden": true,
+        "displayName": "Base Windows Configuration",
+        "description": "Base configuration for Windows builds",
+        "generator": "Visual Studio 17 2022",
+        "binaryDir": "${sourceDir}/build/${presetName}",
+        "cacheVariables": {
+          "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        }
+      },
+      {
+        "name": "debug-windows",
+        "displayName": "Debug Windows",
+        "description": "Debug build for Windows",
+        "inherits": "config-base-windows",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Debug"
+        }
+      },
+      {
+        "name": "release-windows",
+        "displayName": "Release Windows",
+        "description": "Release build for Windows",
+        "inherits": "config-base-windows",
+        "cacheVariables": {
+          "CMAKE_BUILD_TYPE": "Release"
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "debug-build-linux",
+        "displayName": "Debug",
+        "configurePreset": "debug",
+        "description": "Debug build"
+      },
+      {
+        "name": "release-build-linux",
+        "displayName": "Release",
+        "configurePreset": "release",
+        "description": "Release build"
+      },
+      {
+        "name": "debug-build-windows",
+        "displayName": "Build Debug Windows",
+        "configurePreset": "debug-windows"
+      },
+      {
+        "name": "release-build-windows",
+        "displayName": "Build Release Windows",
+        "configurePreset": "release-windows"
+      }
+    ],
+    "testPresets": [
+      {
+        "name": "core-test-linux",
+        "description": "Enable output on failure",
+        "configurePreset": "debug",
+        "output": {
+          "outputOnFailure": true
+        }
+      }
+    ]
+}

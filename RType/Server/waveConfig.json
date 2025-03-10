@@ -1,0 +1,35 @@
+[
+    [
+        {
+            "size" : 1,
+            "position" : [600, 300],
+            "number" : 3
+            
+        }
+    ],
+    [
+        {
+            "size" : 1,
+            "position" : [600, 300],
+            "number" : 2
+            
+        },
+        {
+            "size" : 2,
+            "position" : [650, 300],
+            "number" : 2
+        }
+    ],
+    [
+        {
+            "size" : 2,
+            "position" : [650, 300],
+            "number" : 2
+        },
+        {
+            "size" : 3,
+            "position" : [700, 70],
+            "number" : 1
+        }
+    ]
+]
